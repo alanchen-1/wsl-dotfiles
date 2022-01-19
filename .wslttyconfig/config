@@ -1,0 +1,14 @@
+# To use common configuration in %APPDATA%\mintty, simply remove this file
+ThemeFile=pencil-light.minttyrc
+BellType=0
+Transparency=off
+BoldAsColour=yes
+BoldAsFont=yes
+Font=Consolas
+FontHeight=11
+Term=xterm-256color
+CursorType=block
+Columns=120
+Rows=40
+Scrollbar=none
+ClicksPlaceCursor=yes

@@ -11,3 +11,5 @@
 !.vim/templates/
 !scripts/
 !scripts/*
+!.wslttyconfig/
+!.wslttyconfig/*
