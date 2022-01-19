@@ -1,6 +1,13 @@
-*
+/*
 !.gitignore
 !.vimrc
 !.bashrc
+
+.netrwhist
+!.vim/
+.vim/*
+!.vim/UltiSnips/
+!.vim/colors/
+!.vim/templates/
 !scripts/
-!.vim/*
+!scripts/*
