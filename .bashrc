@@ -57,9 +57,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u:\w$(__git_ps1 " (%s)")\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -138,8 +138,31 @@ fi
 
 unset env
 
-ulimit -s unlimited 
+ulimit -s 256000
 export PATH=$PATH:~/scripts/
 export PATH=$PATH:/mnt/c/Users/Alan/AppData/Local/SumatraPDF/
 export PATH=$PATH:/usr/local/texlive/2021/bin/x86_64-linux/
+export PATH=$PATH:~/code/mergepdf/bin/
+export PATH=$PATH:~/.local/bin/
+export LS_COLORS=$LS_COLORS:'ow=1;34:';
+
+alias windows='cd /mnt/c/Users/Alan/'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/alan/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/alan/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/alan/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/alan/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# add git prompt
+source ~/.git-prompt.sh
 

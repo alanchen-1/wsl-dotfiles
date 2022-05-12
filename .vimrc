@@ -10,10 +10,12 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
-Plugin 'SirVer/ultisnips'
 Plugin 'preservim/vim-colors-pencil'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'valloric/youcompleteme'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+Plugin 'pbrisbin/vim-colors-off'
+Plugin 'owickstrom/vim-colors-paramount'
 Plugin 'lervag/vimtex'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -57,10 +59,26 @@ set termguicolors
 set t_Co=256
 
 "pencil
-let g:pencil_higher_contrast_ui=1
-let g:pencil_terminal_italics=1
+"let g:pencil_higher_contrast_ui=1
+"let g:pencil_terminal_italics=1
+"set background=light
+"colorscheme pencil
+"airline
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme='pencil'
+
+"off
+"colorscheme off
+"let g:colors_off_a_little=1
+
+"paramount
+colorscheme paramount
 set background=light
-colorscheme pencil
+
+"rose-pine
+"colorscheme rose-pine-light
+"hi LineNr ctermfg=6 guifg=#d7827e
+"hi CursorLineNr ctermfg=6
 
 "material
 "let g:material_terminal_italics=1
@@ -79,11 +97,13 @@ let &t_SR = "\e[4 q"
 
 "add mouse support
 set mouse=a
-if has("mouse_sgr")
-    set ttymouse=sgr
-else
-    set ttymouse=xterm2
-end
+if !has('nvim')
+    if has("mouse_sgr")
+        set ttymouse=sgr
+    else
+        set ttymouse=xterm2
+    end
+endif
 
 "no esc delay
 let &t_ti.="\e[?7727h"
@@ -91,9 +111,6 @@ let &t_te.="\e[?7727l"
 noremap <Esc>O[ <Esc>
 noremap! <Esc>O[ <C-c>
 
-"airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='pencil'
 
 "keybindings
 autocmd filetype cpp inoremap{<CR> {<CR>}<Esc>O
@@ -149,4 +166,7 @@ endfunction
 autocmd BufNewFile *.cpp :call TemplateCPP()
 
 "autocmd BufNewFile *.cpp 0r ~/code/cp/library/templates/cptemplate.cpp
+
+"ycm stuff
+let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
 
