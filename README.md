@@ -1,3 +1,4 @@
+Update: this is essentially deprecated now, don't have an intention of updating this.
 # wsl-dotfiles
 My dot and config files for Ubuntu (WSL) running on [wsltty](https://github.com/mintty/wsltty) (xterm-256color)
 ## Notes
